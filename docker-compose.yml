@@ -1,0 +1,14 @@
+# Configuració del servei per al desenvolupament local
+version: '3.8'
+
+services:
+  app:
+    image: node:24-alpine
+    container_name: cites-fisio-dev
+    working_dir: /app
+    volumes:
+      - .:/app
+    environment:
+      - NODE_ENV=development
+      - TZ=Europe/Madrid
+    command: sh -c "npm install && npm test"
